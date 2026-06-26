@@ -145,4 +145,4 @@ print("Heatmap successfully generated and saved as SVG!")
 
 ## 📝 Citation
 If you find this repository or our proposed ST-GAT architecture useful in your research, please consider citing our paper:
-*(Citation details will be updated upon publication)*
+*(ST-GAT: A Spatial-Temporal Graph-Augmented Transformer for Cellular Network Traffic Forecasting)*
