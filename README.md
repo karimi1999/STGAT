@@ -22,7 +22,7 @@ You can easily clone the repository, download the dataset, and evaluate the pre-
 
 ```bash
 # 1. Clone the repository
-!git clone [https://github.com/karimi1999/STGAT.git](https://github.com/karimi1999/STGAT.git)
+!git clone https://github.com/karimi1999/STGAT.git
 
 # 2. Navigate to the project directory
 %cd /content/STGAT
