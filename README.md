@@ -3,7 +3,29 @@
 [![PyTorch](https://img.shields.io/badge/PyTorch-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white)](https://pytorch.org/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg?style=for-the-badge)](https://opensource.org/licenses/MIT)
 
-This repository contains the official PyTorch implementation of **ST-GAT**, a novel hybrid architecture for city-scale cellular network traffic forecasting. ST-GAT successfully mitigates spatial over-smoothing by dynamically fusing a Multi-Head Spatial Self-Attention module (for global dependencies) with a Graph Convolutional Network (GCN) branch driven by Chebyshev polynomials (for localized topological priors) via an **Adaptive Spatio-Topological Gating Mechanism**.
+This repository contains the official PyTorch implementation of **ST-GAT**, a novel hybrid architecture for city-scale cellular network traffic forecasting. 
+
+ST-GAT successfully mitigates spatial over-smoothing by dynamically fusing a Multi-Head Spatial Self-Attention module (for capturing global, functional dependencies) with a Graph Convolutional Network (GCN) branch driven by Chebyshev polynomials (for capturing localized topological priors). This fusion is governed by our proposed **Adaptive Spatio-Topological Gating Mechanism**.
+
+---
+
+## 🏛️ Model Architecture
+
+The ST-GAT architecture operates on dual spatial perspectives. While the Transformer branch learns dynamic, all-to-all spatial correlations, the GCN branch explicitly restricts the receptive field to a $K$-hop physical neighborhood. The Adaptive Gating mechanism then dynamically balances these two representations for each spatial node at every time step.
+
+---
+
+## 🏆 Key Results (Internet Traffic)
+
+Our model achieves state-of-the-art performance on the highly volatile Milan Internet traffic dataset, significantly outperforming existing baselines.
+
+| Method | MAE | RMSE | R² |
+| :--- | :---: | :---: | :---: |
+| ST-DenseNet | 125.49 | 209.56 | 0.9260 |
+| MVSTGN | 88.37 | 163.33 | 0.9540 |
+| GLSTTN (Baseline) | 87.09 | 147.90 | 0.9629 |
+| **ST-GAT (Fixed Fusion)** | 81.68 | 138.55 | 0.9675 |
+| **ST-GAT (Adaptive Gating)** | **77.73** | **136.89** | **0.9683** |
 
 ---
 
@@ -145,4 +167,4 @@ print("Heatmap successfully generated and saved as SVG!")
 
 ## 📝 Citation
 If you find this repository or our proposed ST-GAT architecture useful in your research, please consider citing our paper:
-*(ST-GAT: A Spatial-Temporal Graph-Augmented Transformer for Cellular Network Traffic Forecasting)*
+> **ST-GAT: A Spatial-Temporal Graph-Augmented Transformer for Cellular Network Traffic Forecasting** > *(Full citation details will be provided upon publication)*
